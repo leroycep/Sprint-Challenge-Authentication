@@ -51,13 +51,32 @@ following free-form questions. Edit this document to include your answers after
 each question. Make sure to leave a blank line above and below your answer so it
 is clear and easy to read by your project manager.
 
-- [ ] What is the purpose of using _sessions_?
+- [x] What is the purpose of using _sessions_?
 
-- [ ] What does bcrypt do to help us store passwords in a secure manner.
+  - Sessions are a way for the server to keep track of the state of the client
+    without exposing sensitive state to the user.
+  - They work by giving the user a session id (that can't be guessed by other
+    users) and then keeping track of the session server-side. When the user
+    makes a request to the server, it will look up that session with the session
+    id.
 
-- [ ] What does bcrypt do to slow down attackers?
+- [x] What does bcrypt do to help us store passwords in a secure manner.
 
-- [ ] What are the three parts of the JSON Web Token?
+  - bcrypt salts and hashes the password for us. This makes storing the password
+    more secure by making it more difficult for a hacker to figure out the
+    user's plain-text password if they get a hold of the database.
+
+- [x] What does bcrypt do to slow down attackers?
+
+  - bcrypt salts and hashes the password for us.
+  - The salt means that even if the regular hash of the user's plain text
+    password is known, the salted hash will be different
+  - Hashing is difficult to reverse computationally, and by doing it multiple
+    times bcrypt makes it many times more difficult to reverse
+
+* [x] What are the three parts of the JSON Web Token?
+
+  - The three parts of a JSON Web Token are: Header, Payload, Signature
 
 ## Minimum Viable Product
 
